@@ -34,12 +34,19 @@
   },
   "devDependencies": {
     "@dashkite/amen": "^0.2.0",
-    "@dashkite/amen-console": "^0.0.2",
+    "@dashkite/amen-console": "link:../amen-console",
     "@dashkite/assert": "^0.1.4",
+    "@dashkite/drn-sky": "link:../drn-sky",
     "@dashkite/genie": "link:../genie",
     "@dashkite/genie-clean": "link:../genie-clean",
-    "@dashkite/genie-coffee": "link:../genie-coffee"
+    "@dashkite/genie-coffee": "link:../genie-coffee",
+    "@dashkite/genie-drn": "link:../genie-drn",
+    "@dashkite/genie-yaml": "link:../genie-yaml"
   },
   "dependencies": {
+    "@dashkite/altair": "link:../altair",
+    "@dashkite/belmont": "link:../belmont",
+    "@dashkite/generic": "link:../generic",
+    "@dashkite/reactive": "link:../reactive"
   }
 }

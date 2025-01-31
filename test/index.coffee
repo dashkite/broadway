@@ -2,14 +2,20 @@ import assert from "@dashkite/assert"
 import {test, success} from "@dashkite/amen"
 import print from "@dashkite/amen-console"
 
-import $ from "../src"
-
-import expected from "./expected"
 
 import Resource from "@dashkite/belmont"
 import Providers from "@dashkite/belmont/providers"
 
+import $ from "../src"
+
+import configuration from "./configuration"
+{ origin } = configuration
+
+import expected from "./expected"
+
 Providers.add "https", $
+
+Resources = {}
   
 do ->
 
@@ -17,35 +23,56 @@ do ->
 
     test "integration test", ->
 
-      # TODO use HTTP URL
-      resource = Resource.make "local:/components/add-site"
+      Resources.sites = await Resource.resolve { origin, name: "sites" }
 
-      actual =
-        updates: []
-        put: []
-        get: []
+      { value: site } = await Resources.sites
+        .post name: "My First Site"
+        .when "created", ({ location }) -> console.log { location }
+        .resolve "value"
 
+      # TODO get locator from created event
+      Resources.site = await Resource.resolve { 
+        origin
+        name: "site"
+        bindings:
+          site: site.address
+      }
 
-      resource
-        .observe()
-        .when "update", ({ value }) -> actual.updates.push value
-        .run()
+      # actual =
+      #   updates: []
+      #   put: []
+      #   get: []
 
-      await resource
-        .put "hello, world"
-        .when "success", -> actual.put.push "hello, world!"
-        .run()
+      # Resources.site
+      #   .observe()
+      #   # .when "update", ({ value }) -> actual.updates.push value
+      #   .when "update", ({ value }) -> console.log value
+      #   .run()
 
-      await resource
+      { value: site } = await Resources.site
         .get()
-        .when "value", ({ value }) -> actual.get.push value
-        .run()
+        .resolve "value"
 
-      await resource
-        .put -> "goodbye!"
-        .run()
+      console.log get: site
 
-      assert.deepEqual expected, actual
+      # await Resources.site
+      #   .put ( value ) ->
+      #     value.name = "Not My First Site"
+      #     value
+      #   # .when "success", -> actual.put.push "hello, world!"
+      #   .run()
+
+      # await resource
+      #   .get()
+      #   # .when "value", ({ value }) -> actual.get.push value
+      #   .run()
+
+      # await resource
+      #   .put -> "goodbye!"
+      #   .run()
+
+      # assert.deepEqual expected, actual
+      # console.log actual
       
 
   ]

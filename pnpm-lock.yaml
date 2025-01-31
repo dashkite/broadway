@@ -1,0 +1,71 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@dashkite/altair':
+        specifier: link:../altair
+        version: link:../altair
+      '@dashkite/belmont':
+        specifier: link:../belmont
+        version: link:../belmont
+      '@dashkite/generic':
+        specifier: link:../generic
+        version: link:../generic
+      '@dashkite/reactive':
+        specifier: link:../reactive
+        version: link:../reactive
+    devDependencies:
+      '@dashkite/amen':
+        specifier: ^0.2.0
+        version: 0.2.2
+      '@dashkite/amen-console':
+        specifier: link:../amen-console
+        version: link:../amen-console
+      '@dashkite/assert':
+        specifier: ^0.1.4
+        version: 0.1.4
+      '@dashkite/drn-sky':
+        specifier: link:../drn-sky
+        version: link:../drn-sky
+      '@dashkite/genie':
+        specifier: link:../genie
+        version: link:../genie
+      '@dashkite/genie-clean':
+        specifier: link:../genie-clean
+        version: link:../genie-clean
+      '@dashkite/genie-coffee':
+        specifier: link:../genie-coffee
+        version: link:../genie-coffee
+      '@dashkite/genie-drn':
+        specifier: link:../genie-drn
+        version: link:../genie-drn
+      '@dashkite/genie-yaml':
+        specifier: link:../genie-yaml
+        version: link:../genie-yaml
+
+packages:
+
+  '@dashkite/amen@0.2.2':
+    resolution: {integrity: sha512-bJBbRiIcQaKBT2A+EOltZaZMqGCptPw7rfSnTsu1AiicYWrXwe41zwo2W0a079OpJTLsH9v2vnU20xMCP9mQqA==}
+
+  '@dashkite/assert@0.1.4':
+    resolution: {integrity: sha512-OLOzI/lA+EwCh6znSexGAG1V4bkaT5gU04xl6ApEluv5jICnHhinZ707MObu+jhVVJ9uHDDlG85O+Afn1aTQoQ==}
+
+  '@dashkite/joy@0.3.16':
+    resolution: {integrity: sha512-dsU0us4j1Pb+zceoBvLbnZ2PbmULkJUtM2vtWLxKmoc1DE4w9SVTiPTe6JWvF0A0vk90ldv+Lc9qEA5x3O+DtQ==}
+
+snapshots:
+
+  '@dashkite/amen@0.2.2': {}
+
+  '@dashkite/assert@0.1.4':
+    dependencies:
+      '@dashkite/joy': 0.3.16
+
+  '@dashkite/joy@0.3.16': {}
