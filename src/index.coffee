@@ -35,6 +35,7 @@ class Broadway extends Provider
               yield name: "success"
               value = event.get "response json"
               yield { name: "value", value }
+              self.dispatch { name: "update", value  }
             else if event.when "failure"
               # TODO are there other errors we need to worry about?
               error = event.get "failure error"
@@ -54,7 +55,7 @@ class Broadway extends Provider
           if event.when "created"
             # TODO add resource to registry
             # TODO generate lifecycle event for resource
-            yield name: "created", location: event.get "location"
+            self.dispatch name: "created", location: event.get "location"
           yield name: "success"
           value = event.get "response json"
           yield { name: "value", value }
