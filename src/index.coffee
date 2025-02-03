@@ -30,21 +30,25 @@ class Broadway extends Provider
       .define [( -> true )], ( value ) ->
         self = @
         EventReactor.from do ->
+          # we're optimistically reactive
+          self.dispatch { name: "update", value  }
           for await event from ( HTTP.bind HTTP.put self.locator, value )
             if event.when "success"
               yield name: "success"
               value = event.get "response json"
               yield { name: "value", value }
-              self.dispatch { name: "update", value  }
             else if event.when "failure"
               # TODO are there other errors we need to worry about?
               error = event.get "failure error"
               yield { name: "failure", error }
+              # undo the previous update
+              { value } = await self.get().resolve "value"
+              self.dispatch { name: "update", value  }
 
       .define [ Function ], ( mutator ) ->
         self = @
         EventReactor.from do ->
-          value = await self.get().resolve "value"
+          { value } = await self.get().resolve "value"
           yield from await self.put ( await mutator value )
 
   post: ( value ) ->

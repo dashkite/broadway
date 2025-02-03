@@ -31,9 +31,9 @@ Generators =
   expected: ( address ) ->
     updates: [
       { address, name: 'My First Site', description: null }
-      { address, name: 'Not My First Site' }
+      { address, name: 'Not My First Site', description: null }
     ]
-    put: [{ address, name: 'Not My First Site' }]
+    put: [{ address, name: 'Not My First Site', description: null }]
     get: [{ address, name: 'My First Site', description: null }]
 
 actual =
@@ -83,7 +83,9 @@ do ->
         .when "value", ({ value }) -> actual.put.push value
         .run()
 
+      # console.log actual
       assert.deepEqual expected, actual
+
 
   ]
 
