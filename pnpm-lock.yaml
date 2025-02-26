@@ -45,6 +45,9 @@ importers:
       '@dashkite/genie-drn':
         specifier: link:../genie-drn
         version: link:../genie-drn
+      '@dashkite/genie-module':
+        specifier: link:../genie-module
+        version: link:../genie-module
       '@dashkite/genie-yaml':
         specifier: link:../genie-yaml
         version: link:../genie-yaml
