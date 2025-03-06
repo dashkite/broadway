@@ -35,7 +35,7 @@
   "devDependencies": {
     "@dashkite/amen": "^0.2.0",
     "@dashkite/amen-console": "link:../amen-console",
-    "@dashkite/assert": "^0.1.4",
+    "@dashkite/assert": "link:../assert",
     "@dashkite/drn-sky": "link:../drn-sky",
     "@dashkite/genie": "link:../genie",
     "@dashkite/genie-clean": "link:../genie-clean",
