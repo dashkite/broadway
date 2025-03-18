@@ -4,10 +4,13 @@ HTTP =
 
   get: ( locator ) ->
     for await event from ( Altair.bind Altair.get locator )
+      # console.log event
       if event.when "success"
         yield name: "success"
         value = event.get "response json"
         yield { name: "value", value }
+      else if event.when "method not allowed"
+        yield { name: "method not allowed", method: ( event.get "method" )}
       else if event.when "failure"
         # TODO are there other errors we need to worry about?
         error = event.get "failure error"
@@ -39,13 +42,15 @@ HTTP =
   post: ( locator, _value ) ->
     for await event from ( Altair.bind Altair.post locator, _value )
       if event.when "success"
+        value = event.get "response json"
         if event.when "created"
+          location = event.get "location"
           # TODO add resource to registry
           # TODO generate lifecycle event for resource
-          yield name: "created", location: event.get "location"
-        yield name: "success"
-        value = event.get "response json"
-        yield { name: "value", value }
+          yield { name: "created", location, value }
+        else
+          # success?
+          yield { name: "value", value }
       else if event.when "failure"
         # TODO are there other errors we need to worry about?
         error = event.get "failure error"
