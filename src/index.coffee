@@ -1,7 +1,7 @@
 import Generic from "@dashkite/generic"
 import EventReactor from "@dashkite/reactive/event-reactor"
 import Provider from "@dashkite/belmont/provider"
-import HTTP from "./http"
+import HTTP from "@dashkite/altair/ajax"
 
 class Broadway extends Provider
 

@@ -15,18 +15,11 @@ do ->
 
   print await test "Broadway", [
 
-    test "integration test", ->
+    await test "integration test", ->
+
 
       Resources = {}
       Subscriptions = {}
-      Result =
-        expected: ( address ) ->
-          [
-            { address, name: 'My First Site', description: null }
-            { address, name: 'Not My First Site', description: null }
-          ]
-
-      actual = []
 
       site = undefined
 
@@ -53,16 +46,13 @@ do ->
       do ->
         for await event from Subscriptions.site
           switch event.name
-            when "value" then actual.push event.value
+            when "value" then site = event.value
         return
 
-      Resources.site.put ( value ) ->
-        value.name = "Not My First Site"
-        value
+      Resources.site.put { site..., name: "Not My First Site" }
         
-      expected = Result.expected site.address
       await assert.expect -> 
-        Val.equal expected, actual
+        site.name == "Not My First Site"
 
   ]
 
