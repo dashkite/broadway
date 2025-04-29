@@ -43,7 +43,8 @@
     "@dashkite/genie-drn": "link:../genie-drn",
     "@dashkite/genie-module": "link:../genie-module",
     "@dashkite/genie-yaml": "link:../genie-yaml",
-    "@dashkite/profile": "link:../profile"
+    "@dashkite/profile": "link:../profile",
+    "@dashkite/vista": "link:../vista"
   },
   "dependencies": {
     "@dashkite/altair": "link:../altair",
