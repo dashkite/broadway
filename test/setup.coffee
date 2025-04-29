@@ -12,6 +12,5 @@ window.caches =
     match: ( url ) -> undefined
 
 # Email profile
-# TODO will need to add real credentials here
 import Profile from "@dashkite/profile"
 Profile.save email: "test@acme.com"
