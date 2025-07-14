@@ -49,7 +49,7 @@
   "dependencies": {
     "@dashkite/altair": "link:../altair",
     "@dashkite/belmont": "link:../belmont",
-    "@dashkite/generic": "link:../generic",
+    "@dashkite/generic": "0.3.0",
     "@dashkite/reactive": "0.1.0"
   }
 }
