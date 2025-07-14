@@ -34,22 +34,22 @@
     "release": "genie release"
   },
   "devDependencies": {
-    "@dashkite/amen": "^0.2.0",
-    "@dashkite/amen-console": "0.1.0",
-    "@dashkite/assert": "0.2.0",
-    "@dashkite/drn-sky": "0.2.0",
-    "@dashkite/genie": "0.9.0",
-    "@dashkite/genie-clean": "0.2.0",
-    "@dashkite/genie-coffee": "0.2.0",
-    "@dashkite/genie-drn": "0.3.0",
+    "@dashkite/amen": "^0.5.0",
+    "@dashkite/amen-console": "0.4.0",
+    "@dashkite/assert": "0.3.0",
+    "@dashkite/drn-sky": "0.4.0",
+    "@dashkite/genie": "0.16.0",
+    "@dashkite/genie-clean": "0.9.0",
+    "@dashkite/genie-coffee": "0.9.0",
+    "@dashkite/genie-drn": "0.8.0",
     "@dashkite/genie-release": "^0.2.10",
-    "@dashkite/genie-yaml": "0.1.0",
-    "@dashkite/profile": "0.2.0"
+    "@dashkite/genie-yaml": "0.7.0",
+    "@dashkite/profile": "0.5.0"
   },
   "dependencies": {
     "@dashkite/altair": "link:../altair",
     "@dashkite/belmont": "link:../belmont",
-    "@dashkite/generic": "0.3.0",
-    "@dashkite/reactive": "0.1.0"
+    "@dashkite/generic": "0.5.0",
+    "@dashkite/reactive": "0.3.0"
   }
 }
