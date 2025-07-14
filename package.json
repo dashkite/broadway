@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@dashkite/amen": "^0.2.0",
-    "@dashkite/amen-console": "link:../amen-console",
+    "@dashkite/amen-console": "0.1.0",
     "@dashkite/assert": "link:../assert",
     "@dashkite/drn-sky": "0.2.0",
     "@dashkite/genie": "0.9.0",
@@ -44,7 +44,7 @@
     "@dashkite/genie-drn": "0.3.0",
     "@dashkite/genie-release": "^0.2.8",
     "@dashkite/genie-yaml": "0.1.0",
-    "@dashkite/profile": "link:../profile"
+    "@dashkite/profile": "0.2.0"
   },
   "dependencies": {
     "@dashkite/altair": "link:../altair",
