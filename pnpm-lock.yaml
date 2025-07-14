@@ -18,8 +18,8 @@ importers:
         specifier: link:../generic
         version: link:../generic
       '@dashkite/reactive':
-        specifier: link:../reactive
-        version: link:../reactive
+        specifier: 0.1.0
+        version: 0.1.0
     devDependencies:
       '@dashkite/amen':
         specifier: ^0.2.0
@@ -905,6 +905,9 @@ packages:
   '@dashkite/joy@0.4.0':
     resolution: {integrity: sha512-pBeuzpzuUzb3I/HNykRQXN3nh8t2JgtmEwScCtQuSU/q3/LODdu4Xd522m7oHVwFXNPZ2CUwJk/MNg+etaX3rQ==}
 
+  '@dashkite/joy@0.5.0':
+    resolution: {integrity: sha512-kaDNKKS6v5r3vukOkh54aarrhiTHwbcKZZW8eDav5FhT6u8RRrmSaFeAbwLzGntdPScaEhqg/PLrvtPHOy9OlQ==}
+
   '@dashkite/kaiko@0.3.3':
     resolution: {integrity: sha512-XnAvVr9y2MsDqMLr4A24vkLF7Iuq3E8RjHEEpqhe29P5NevVX9jXKcXUStNMp9MSJbjHd2pqUNiM5Vvdja9ggg==}
 
@@ -938,8 +941,14 @@ packages:
   '@dashkite/parse@0.4.3':
     resolution: {integrity: sha512-bE0kBjaGYjUnCzWJelQnx8vsfJ9YP07aRTVFZoY7TZWvMmnihoCSugL4IVWAOA2O0EAZXjT8FcjA4bNJ/BQwwg==}
 
+  '@dashkite/parse@0.5.0':
+    resolution: {integrity: sha512-werLa650mYvKyNQOOA4kGxmwBTyLXbN+swZeGbVbXyjH+1XMNmnBDUreLPr3J3PYyeU1xH2Nu7qdjXxSjWNw+g==}
+
   '@dashkite/profile@0.2.0':
     resolution: {integrity: sha512-RP6lrZLp+sJxLZ9DK6w4S0hEoA/6K5e+l7r06s/mRDcKL1j5Yx39CNjDwayzur3La39+hmGl7AiEGa63c5ETXg==}
+
+  '@dashkite/reactive@0.1.0':
+    resolution: {integrity: sha512-iVYgfZmbw/5rTGlrASm4FoSHQO+qIdYF1KNWH7O10dyeh8lNRztgDVYF/7BTAsFRZ0wisHOsIJF/f4WlmVj4TA==}
 
   '@dashkite/sky-local-storage@0.1.0':
     resolution: {integrity: sha512-nkhAyAWQDsmem7YgEw7DC9BBXU+LyO+oR/J962FcVoUm9SYA1gk7QU0SbNVQZiGsNZG/T/iIjMHUH1bdidASRA==}
@@ -4031,6 +4040,8 @@ snapshots:
 
   '@dashkite/joy@0.4.0': {}
 
+  '@dashkite/joy@0.5.0': {}
+
   '@dashkite/kaiko@0.3.3': {}
 
   '@dashkite/masonry-coffee@0.2.0':
@@ -4093,9 +4104,18 @@ snapshots:
     dependencies:
       '@dashkite/joy': 0.3.16
 
+  '@dashkite/parse@0.5.0':
+    dependencies:
+      '@dashkite/joy': 0.3.16
+
   '@dashkite/profile@0.2.0':
     dependencies:
       '@dashkite/storage': 0.3.0
+
+  '@dashkite/reactive@0.1.0':
+    dependencies:
+      '@dashkite/joy': 0.5.0
+      '@dashkite/parse': 0.5.0
 
   '@dashkite/sky-local-storage@0.1.0':
     dependencies:

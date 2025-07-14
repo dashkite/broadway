@@ -50,6 +50,6 @@
     "@dashkite/altair": "link:../altair",
     "@dashkite/belmont": "link:../belmont",
     "@dashkite/generic": "link:../generic",
-    "@dashkite/reactive": "link:../reactive"
+    "@dashkite/reactive": "0.1.0"
   }
 }
