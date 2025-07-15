@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@dashkite/altair": "0.2.0",
-    "@dashkite/belmont": "link:../belmont",
+    "@dashkite/belmont": "0.2.0",
     "@dashkite/generic": "0.5.0",
     "@dashkite/reactive": "0.3.0"
   }
