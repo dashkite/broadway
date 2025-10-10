@@ -1,43 +1,38 @@
-import EventCoroutine from "@dashkite/reactive/event-coroutine"
+import * as Fn from "@dashkite/joy/function"
 import Provider from "@dashkite/belmont/provider"
 import HTTP from "@dashkite/altair"
+import { make, value, wildcard, start } from "./combinators"
 
 class Broadway extends Provider
 
-  get: ->
+  get: Fn.pipe [
+    -> HTTP.get @locator
+    make
+    value
+    wildcard
+    start
+  ]
 
-    EventCoroutine
+  put: Fn.pipe [
+    -> HTTP.put @locator
+    make
+    value
+    wildcard
+    start
+  ]
 
-      .make HTTP.get @locator
-      .bind @
+  post: Fn.pipe [
+    -> HTTP.post @locator
+    make
+    wildcard
+    start
+  ]
 
-      .when "success", ( event ) ->
-
-        @publish 
-          event: "value"
-          value: event.response.content
-
-        @publish event
-
-      # process related responses
-      .when "authenticate", ->
-
-      # error
-      .when "error", ({ error }) ->
-        # for now, strip off sublime: prefix
-        # see: issue #1
-        if /^sublime: /.test error.message        
-          @publish name: error.message[9..]
-
-      # by default, pass events through
-      .when "*", ( event ) -> @publish event
-
-      .start()
-
-  put: ( value ) ->
-
-  post: ( value ) ->
-
-  delete: ->
+  delete: Fn.pipe [
+    -> HTTP.delete @locator
+    make
+    wildcard
+    start
+  ]
 
 export default Broadway

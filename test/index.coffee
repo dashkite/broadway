@@ -17,7 +17,6 @@ do ->
 
     await test "integration test", ->
 
-
       Resources = {}
       Subscriptions = {}
 
