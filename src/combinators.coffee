@@ -10,11 +10,6 @@ Combinators =
       .make reactor
       .bind @
       .when "authenticate", ->
-      .when "error", ({ error }) ->
-        # TODO this remapping belongs in Altair
-        message = error.message.replace /^sublime: /, ""
-        name = message.replace /\s+/g, "-"
-        @publish name: name, message: message
       .when "retry", ->
 
   get: ( co ) ->
@@ -57,7 +52,8 @@ Combinators =
       @publish event
 
   wildcard: ( co ) ->
-    co.when "*", ( event ) -> @publish event
+    co.when "*", ( event ) -> 
+      @publish event
 
   start: ( co ) -> co.start()
 
