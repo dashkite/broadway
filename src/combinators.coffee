@@ -1,29 +1,64 @@
+import * as Fn from "@dashkite/joy/function"
+import * as Val from "@dashkite/joy/value"
 import EventCoroutine from "@dashkite/reactive/event-coroutine"
+import Scout from "@dashkite/scout"
 
-make = ( reactor ) ->
-  EventCoroutine
-    .make reactor
-    .bind @
-    # process related responses
-    .when "authenticate", ->
-    # error
-    .when "error", ({ error }) ->
-      # for now, strip off sublime: prefix
-      # see: issue #1
-      if /^sublime: /.test error.message        
-        @publish name: error.message[9..]
+Combinators =
 
-value = ( co ) ->
-  co.when "success", ( event ) ->
-    @publish 
-      event: "value"
-      value: event.response.content
-    @publish event
+  make: ( reactor ) ->
+    EventCoroutine
+      .make reactor
+      .bind @
+      .when "authenticate", ->
+      .when "error", ({ error }) ->
+        # TODO this remapping belongs in Altair
+        message = error.message.replace /^sublime: /, ""
+        name = message.replace /\s+/g, "-"
+        @publish name: name, message: message
+      .when "retry", ->
 
-wildcard = ( co ) ->
-  # by default, pass events through
-  co.when "*", ( event ) -> @publish event
+  get: ( co ) ->
+    co.when "ok", ( event ) ->
+      @publish event
+      @publish 
+        name: "value"
+        scope: "resource"
+        value: event.response.content
 
-start = ( co ) -> co.start()
+  post: ( co ) ->
+    co.when "created", ( event ) ->
+      @publish event
+      if ( location = event.response.headers.get "location" )?
+        url = new URL location, @locator.origin
+        @publish
+          name: "created"
+          scope: "resource"
+          value: event.response.content
+          locator: Scout.decode url.pathname,
+            await Scout.discover url.origin
 
-export { make, value, wildcard, start }
+  put: ( co ) ->
+    co.when "ok", ( event ) ->
+      @publish event
+      @publish 
+        name: "value"
+        scope: "resource"
+        value: event.response.content
+    co.when "created", ( event ) ->
+      @publish event
+      @publish 
+        name: "created"
+        scope: "resource"
+        value: event.response.content
+
+  delete: ( co ) ->
+    co.when "ok, no-content", ( event ) ->
+      @publish name: "delete", scope: "resource"
+      @publish event
+
+  wildcard: ( co ) ->
+    co.when "*", ( event ) -> @publish event
+
+  start: ( co ) -> co.start()
+
+export default Combinators

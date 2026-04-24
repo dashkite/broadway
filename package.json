@@ -45,13 +45,18 @@
     "@dashkite/genie-module": "link:../genie-module",
     "@dashkite/genie-release": "^0.5.0",
     "@dashkite/genie-yaml": "^0.7.0",
-    "@dashkite/profile": "^0.5.0"
+    "@dashkite/profile": "^0.5.0",
+    "@dashkite/sky-sublime": "link:../sky-sublime",
+    "@dashkite/sublime": "link:../sublime",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
   },
   "dependencies": {
     "@dashkite/altair": "link:../altair",
     "@dashkite/belmont": "link:../belmont",
     "@dashkite/generic": "^0.5.0",
     "@dashkite/joy": "^0.12.25",
-    "@dashkite/reactive": "^0.7.20"
+    "@dashkite/reactive": "^0.7.20",
+    "@dashkite/scout": "link:../scout"
   }
 }

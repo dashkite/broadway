@@ -1,0 +1,30 @@
+resources:
+  posts:
+    template: "/posts"
+    methods:
+      get:
+        response:
+          content-type: [ "application/json" ]
+          status: [ 200 ]
+      post:
+        request:
+          content-type: [ "application/json" ]
+        response:
+          content-type: [ "application/json" ]
+          status: [ 201 ]
+  post:
+    template: "/posts/{address}"
+    methods:
+      get:
+        response:
+          content-type: [ "application/json" ]
+          status: [ 200, 404 ]
+      put:
+        request:
+          content-type: [ "application/json" ]
+        response:
+          content-type: [ "application/json" ]
+          status: [ 200, 201 ]
+      delete:
+        response:
+          status: [ 200 ]
