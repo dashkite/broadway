@@ -2,6 +2,7 @@ import * as Fn from "@dashkite/joy/function"
 import * as Val from "@dashkite/joy/value"
 import EventCoroutine from "@dashkite/reactive/event-coroutine"
 import Scout from "@dashkite/scout"
+import Registry from "@dashkite/registry"
 
 Combinators =
 
@@ -10,6 +11,17 @@ Combinators =
       .make reactor
       .bind @
       .when "authenticate", ->
+        application = await Registry.get "application"
+        presence = await Registry.get "presence"
+
+        application.navigate name: "connect"
+        
+        do ->
+          for await event from presence.subscribe()
+            if event.name == "connect"
+              return true
+            if event.name == "rejected"
+              return false
       .when "retry", ->
 
   get: ( co ) ->

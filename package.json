@@ -57,6 +57,8 @@
     "@dashkite/generic": "^0.5.0",
     "@dashkite/joy": "^0.12.25",
     "@dashkite/reactive": "^0.7.20",
-    "@dashkite/scout": "link:../scout"
+    "@dashkite/registry": "^0.17.12",
+    "@dashkite/scout": "link:../scout",
+    "registry": "link:../registry"
   }
 }
