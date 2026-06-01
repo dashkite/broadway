@@ -41,7 +41,7 @@
     "@dashkite/genie": "^0.20.16",
     "@dashkite/genie-clean": "^0.9.0",
     "@dashkite/genie-coffee": "^0.9.0",
-    "@dashkite/genie-drn": "link:../genie-drn",
+    "@dashkite/genie-drn": "^0.12.20",
     "@dashkite/genie-module": "^0.5.43",
     "@dashkite/genie-release": "^0.5.2",
     "@dashkite/genie-yaml": "^0.7.0",
@@ -49,8 +49,8 @@
   },
   "dependencies": {
     "@dashkite/altair": "link:../altair",
-    "@dashkite/belmont": "link:../belmont",
+    "@dashkite/belmont": "^0.3.15",
     "@dashkite/generic": "^0.5.0",
-    "@dashkite/reactive": "link:../reactive"
+    "@dashkite/reactive": "^0.7.21"
   }
 }
