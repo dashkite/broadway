@@ -48,7 +48,7 @@
     "@dashkite/profile": "^0.5.0"
   },
   "dependencies": {
-    "@dashkite/altair": "link:../altair",
+    "@dashkite/altair": "^0.4.5",
     "@dashkite/belmont": "^0.3.24",
     "@dashkite/generic": "^0.5.0",
     "@dashkite/reactive": "^0.7.31"
