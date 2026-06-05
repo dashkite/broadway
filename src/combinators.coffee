@@ -3,6 +3,7 @@ import * as Val from "@dashkite/joy/value"
 import EventCoroutine from "@dashkite/reactive/event-coroutine"
 import Scout from "@dashkite/scout"
 import Registry from "@dashkite/registry"
+import Belmont from "@dashkite/belmont"
 
 Combinators =
 
@@ -37,12 +38,23 @@ Combinators =
       @publish event
       if ( location = event.response.headers.get "location" )?
         url = new URL location, @locator.origin
+        locator = Scout.decode url.pathname,
+            await Scout.discover url.origin
+        locator.origin = url.origin
+
+        # publish to child resource (initialization)
+        child = await Belmont.resolve locator
+        child.publish
+          name: "created"
+          scope: "resource"
+          value: event.response.content
+
+        # publish to parent resource (collection update)
         @publish
           name: "created"
           scope: "resource"
           value: event.response.content
-          locator: Scout.decode url.pathname,
-            await Scout.discover url.origin
+          locator: locator
 
   put: ( co ) ->
     co.when "ok", ( event ) ->
