@@ -1,6 +1,6 @@
 {
   "name": "@dashkite/broadway",
-  "version": "0.3.23",
+  "version": "0.3.26",
   "description": "Chicago System HTTP Provider",
   "keywords": [],
   "homepage": "https://github.com/dashkite/broadway#readme",
@@ -34,6 +34,7 @@
     "release": "genie release"
   },
   "devDependencies": {
+
     "@dashkite/amen": "0.5.0",
     "@dashkite/amen-console": "0.4.0",
     "@dashkite/assert": "0.3.0",
@@ -60,5 +61,6 @@
     "@dashkite/registry": "0.17.12",
     "@dashkite/scout": "link:../scout",
     "registry": "link:../registry"
+
   }
 }
