@@ -54,12 +54,10 @@ Servers =
 
   start: ( port = 3001 ) ->
     new Promise ( resolve ) =>
-      @_server = app.listen port, ->
-        resolve()
+      @_server = app.listen port, resolve
 
   stop: ->
     new Promise ( resolve ) =>
-      @_server.close ->
-        resolve()
+      @_server.close resolve
 
 export default Servers

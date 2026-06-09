@@ -72,7 +72,7 @@ Combinators =
 
   delete: ( co ) ->
     co.when "ok, no-content", ( event ) ->
-      @publish name: "delete", scope: "resource"
+      @publish name: "deleted", scope: "resource"
       @publish event
 
   wildcard: ( co ) ->
