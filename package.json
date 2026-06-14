@@ -53,11 +53,11 @@
   },
   "dependencies": {
     "@dashkite/altair": "link:../altair",
-    "@dashkite/belmont": "^0.3.30",
+    "@dashkite/belmont": "^0.3.31",
     "@dashkite/generic": "0.5.0",
-    "@dashkite/joy": "^0.12.42",
+    "@dashkite/joy": "^0.12.44",
     "@dashkite/reactive": "0.7.33",
     "@dashkite/registry": "0.17.12",
-    "@dashkite/scout": "^0.8.34"
+    "@dashkite/scout": "^0.8.35"
   }
 }
